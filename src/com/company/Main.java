@@ -61,29 +61,30 @@ public class Main {
 
     public static void Solution(int[] arr) {
         Integer prev = null;
-        Integer curr = null;
+        Integer next = null;
         int total = 0;
 
         for (int n : arr) {
-            if (curr == null) {
-                curr = n;
+
+            if (next == null) {
+                next = n;
             } else {
-                if (n != curr) {
+                if (n != next) {
                     if (prev != null) {
-                        if ((prev < curr && n < curr) || (prev > curr && n > curr)) {
+                        if ((prev < next && n < next) || (prev > next && n > next)) {
                             total += 1;
                         }
                     } else {
 
                         total += 1;
                     }
-                    prev = curr;
-                    curr = n;
+                    prev = next;
+                    next = n;
                 }
             }
         }
 
-        if (prev != curr) {
+        if (prev != next) {
             total += 1;
         }
 
@@ -91,7 +92,7 @@ public class Main {
 
     }
 
-    
+
 }
 
 
